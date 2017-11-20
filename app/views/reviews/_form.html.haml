@@ -1,0 +1,10 @@
+= form_with(model: [@place, review]) do |f|
+	#star-rating
+	= f.text_area :comment
+	= f.submit "Submit review", class: "btn btn-secondary btn-sm"  
+
+:javascript
+	$('#star-rating').raty({
+		path: '/assets',
+		scoreName: 'review[rating]'
+	});

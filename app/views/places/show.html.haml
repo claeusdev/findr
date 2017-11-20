@@ -1,2 +1,10 @@
 = @place.name
 %p= @place.address
+.star-rating{ data: {score: @avg_rating} }
+	%span= pluralize(@place.reviews.count, 'review')
+
+
+= render "reviews/form", review: @review
+
+#reviews
+	= render @place.reviews

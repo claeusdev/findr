@@ -2,7 +2,9 @@ Rails.application.routes.draw do
 
   devise_for :users
   resources :users, only: [:show]
-  resources :places
+  resources :places do
+  	resources :reviews
+  end
 
   get 'pages/index'
 

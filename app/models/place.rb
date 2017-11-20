@@ -9,7 +9,7 @@ class Place < ApplicationRecord
 
 	
 	def address
-		 [street_name, city, region].join(",")
+		 [city, region].join(",")
 	end
 
 

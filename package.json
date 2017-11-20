@@ -1,5 +1,11 @@
 {
   "name": "claeus",
   "private": true,
-  "dependencies": {}
+  "dependencies": {},
+  "version": "1.0.0",
+  "description": "Find places and businesses in Ghana",
+  "main": "index.js",
+  "repository": "https://github.com/claeusdev/findr.git",
+  "author": "Nana Adjei Manu <claeusdev@gmail.com>",
+  "license": "MIT"
 }

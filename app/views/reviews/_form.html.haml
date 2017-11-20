@@ -1,7 +1,7 @@
 = form_with(model: [@place, review]) do |f|
 	#star-rating
-	= f.text_area :comment
-	= f.submit "Submit review", class: "btn btn-secondary btn-sm"  
+	= f.text_area :comment, placeholder: "Your review helps others know about local places and businesses.", class: "db border-box hover-black w-100 measure ba b--black-20 pa2 br2 mb2"
+	= f.submit "Submit review", class: "btn bg-dark-blue"  
 
 :javascript
 	$('#star-rating').raty({

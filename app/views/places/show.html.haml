@@ -1,10 +1,14 @@
-= @place.name
-%p= @place.address
-.star-rating{ data: {score: @avg_rating} }
-	%span= pluralize(@place.reviews.count, 'review')
 
-
-= render "reviews/form", review: @review
-
-#reviews
-	= render @place.reviews
+%main.center
+	%article.cf.ph3.ph5-ns.pv5
+		%header.fn.fl-ns.w-50-ns.pr4-n
+			%h1.f2.lh-little.fw9.mb3.mt0.pt3.bt.bw2= @place.name
+			%h2.f3.mid.gray.lh-little= @place.address
+			%time.f6.ttu.traked.gray= time_ago_in_words(@place.created_at)
+			.star-rating{ data: {score: @avg_rating} }
+			%span= pluralize(@place.reviews.count, 'review')
+			%hr/
+			= render "reviews/form", review: @review
+		.fn.fl-ns.w-50-ns.ph3
+			#reviews
+				= render @place.reviews

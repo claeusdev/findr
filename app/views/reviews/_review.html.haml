@@ -1,3 +1,11 @@
-%p= review.comment
-.star-rating{ data: {score: review.rating} }
-%p= review.user.email
+
+%main
+	%article
+		.link.dt.w-100.bb.b--black-10.pb2.mt2.dim.blue
+			.dtc.w3
+				%img{:src => "http://mrmrs.github.io/images/0010.jpg", :alt => "", class: "db w-100"}/
+			.dtc.v-top.pl2
+				%h2.star-rating.f6.fw4.mt2.mb0.black-60{ data: {score: review.rating} } 
+				%p= review.comment
+				%dl.mt2.f6
+					%dt.clip= review.user.email

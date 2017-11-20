@@ -1,7 +1,10 @@
 = form_for @place do |f|
+	
+	= f.text_field :name, placeholder: "Enter name of the place", class: "ba  w-100 measure"
+	= f.collection_select :category_id, Category.order(:name), :id, :name, {prompt: "What is this place?"}, placeholder: 'Say something small about your brand', class: "ba w-100 measure input" 
 
+	= f.text_field :city, placeholder: "What city is this place?", class: "ba w-100 measure"
 
-	= f.text_field :name
-	= f.text_field :city
-	= f.text_field :region
-	= f.submit "Add this place", class: "btn btn-dark btn-sm"
+	= f.text_field :region, placeholder: "Which region", class: "ba w-100 measure"
+	%br/
+	= f.submit "Add this place", class: "btn bg-dark-blue"

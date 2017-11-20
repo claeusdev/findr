@@ -2,6 +2,7 @@
 %main.center
 	%article.cf.ph3.ph5-ns.pv5
 		%header.fn.fl-ns.w-50-ns.pr4-n
+			%iframe{:src => "https://www.google.com/maps/embed/v1/search?key=AIzaSyCXan5cRD_efvRJ0mqA9D2Ns8wdK4HDIW0&q=#{@place.latitude} + #{@place.longitude}", :frameborder => "0", width: "100%", height: "450"}
 			%h1.f2.lh-little.fw9.mb3.mt0.pt3.bt.bw2= @place.name
 			%h2.f3.mid.gray.lh-little= @place.address
 			%time.f6.ttu.traked.gray= time_ago_in_words(@place.created_at)
@@ -9,6 +10,13 @@
 			%span= pluralize(@place.reviews.count, 'review')
 			%hr/
 			= render "reviews/form", review: @review
+			
 		.fn.fl-ns.w-50-ns.ph3
 			#reviews
 				= render @place.reviews
+
+
+				
+
+
+  

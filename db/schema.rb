@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20171120014709) do
+ActiveRecord::Schema.define(version: 20171120195636) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -29,6 +29,9 @@ ActiveRecord::Schema.define(version: 20171120014709) do
     t.float "longitude"
     t.string "city"
     t.string "region"
+    t.bigint "category_id"
+    t.string "street_name"
+    t.index ["category_id"], name: "index_places_on_category_id"
   end
 
   create_table "reviews", force: :cascade do |t|
@@ -60,6 +63,7 @@ ActiveRecord::Schema.define(version: 20171120014709) do
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
 
+  add_foreign_key "places", "categories"
   add_foreign_key "reviews", "places"
   add_foreign_key "reviews", "users"
 end

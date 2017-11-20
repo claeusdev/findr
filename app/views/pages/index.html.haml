@@ -1,0 +1,22 @@
+%article.mw7.center.ph3.ph5-ns.tc.br2.pv5.mb5
+  %h1.fw6.f3.f2-ns.lh-title.mt0.mb3 Find the best places to eat, drink, shop, or visit in Ghana.
+  %p.fw1.f5.mt0.mb3 Search and view places and businesses.
+  .home-search 
+    = form_with( url: search_path, method: :get, local: true) do |f|
+      = f.text_field :q, placeholder: "Search places, hospitals"
+      = f.submit "Search", class: "submit-button btn white bg-dark-blue"
+
+
+%main.mw6.center.ph3
+  - @recent_places.each do |p, rating|
+    %article
+      .link.dt.w-100.bb.b--black-10.pb2.mt2.dim.blue
+        .dtc.w3
+          %img{:src => "http://mrmrs.github.io/images/0010.jpg", :alt => ""}/
+        .dtc.v-top.pl2
+          %h1.f6.f5-ns.fw6.lh-title.black.mv0= link_to p.name, p
+          %h2.f6.fw4.mt2.mb0.black-60= p.address
+          %br/
+          - if p.reviews.present?
+            .star-rating{ data: { score: p.reviews.average(:rating).round(2)} }
+            %span= pluralize(p.reviews.count, "reviews")

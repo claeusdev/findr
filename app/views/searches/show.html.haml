@@ -1,0 +1,15 @@
+%main.mw7.center
+	%h1= "Results for '#{params[:q]}'"
+
+	- @places.each do |place|
+		%article
+			.link.dt.w-100.bb.b--black-10.pb2.mt2.dim.blue
+				.dtc.w3
+					%img{:src => "http://mrmrs.github.io/images/0010.jpg", :alt => ""}/
+				.dtc.v-top.pl2
+					%h1.f6.f5-ns.fw6.lh-title.black.mv0= link_to place.name, place
+					%h2.f6.fw4.mt2.mb0.black-60= place.address
+					%br/
+					- if place.reviews.present?
+						.star-rating{ data: { score: place.reviews.average(:rating).round(2)} }
+						%span= pluralize(place.reviews.count, "reviews")

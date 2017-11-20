@@ -1,0 +1,14 @@
+
+%nav.db.dt-l.w-100.border-box.pa3.ph5-l
+	= link_to root_path, class: "db dtc-l v-mid mid-gray link dim w-100 w-25-l tc tl-l mb2 mb0-l" do
+		%img{:src => "http://tachyons.io/img/logo.jpg", :alt => "Site Name", class: "dib w2 h2 br-100"}/
+	
+	.db.dtc-l.v-mid.w-100.w-75-l.tc.tr-l
+		- if user_signed_in?
+			= link_to "Add place", new_place_path, class: "link dim dark-gray f6 f5-l dib mr3 mr4-l"
+			= link_to "Profile", user_path(current_user), class: "link dim dark-gray f6 f5-l dib mr3 mr4-l"
+			= link_to "Log out", destroy_user_session_path, method: :delete, class: "link dim dark-gray f6 f5-l dib mr3 mr4-l"
+		- else
+			= link_to "Sign in", new_user_registration_path, class: "link dim dark-gray f6 f5-l dib mr3 mr4-l"
+			= link_to "Log in", new_user_session_path, class: "link dim dark-gray f6 f5-l dib mr3 mr4-l"
+  

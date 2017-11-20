@@ -1,6 +1,6 @@
 class Place < ApplicationRecord
 	searchkick
-	
+
 	geocoded_by :address
 	after_validation :geocode
 
@@ -10,7 +10,7 @@ class Place < ApplicationRecord
 
 	
 	def address
-		 [city, region].join(",")
+		 [street_name, city, region].join(",")
 	end
 
 

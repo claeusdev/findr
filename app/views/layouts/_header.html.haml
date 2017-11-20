@@ -5,10 +5,11 @@
 	
 	.db.dtc-l.v-mid.w-100.w-75-l.tc.tr-l
 		- if user_signed_in?
-			= link_to "Add place", new_place_path, class: "link dim dark-gray f6 f5-l dib mr3 mr4-l"
+			= link_to "Add place", new_place_path, class: "f6 link dim br1 ph3 pv2 mb2 dib white bg-dark-blue"
+			
 			= link_to "Profile", user_path(current_user), class: "link dim dark-gray f6 f5-l dib mr3 mr4-l"
 			= link_to "Log out", destroy_user_session_path, method: :delete, class: "link dim dark-gray f6 f5-l dib mr3 mr4-l"
 		- else
-			= link_to "Sign in", new_user_registration_path, class: "link dim dark-gray f6 f5-l dib mr3 mr4-l"
+			= link_to "Sign up", new_user_registration_path, class: "link dim dark-gray f6 f5-l dib mr3 mr4-l"
 			= link_to "Log in", new_user_session_path, class: "link dim dark-gray f6 f5-l dib mr3 mr4-l"
   

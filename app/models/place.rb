@@ -4,7 +4,7 @@ class Place < ApplicationRecord
 	geocoded_by :address
 	after_validation :geocode
 
-	has_many :reviews
+	has_many :reviews, dependent: :destroy
 
 	belongs_to :category
 
